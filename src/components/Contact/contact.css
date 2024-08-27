@@ -1,0 +1,49 @@
+.cnt-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.cnt-container a{
+    height: 100px;
+    width: 40%;
+    background-color: rgb(86, 162, 248);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: black;
+    font-weight: 700;
+}
+
+.cnt-container a:hover{
+    box-shadow: 0 0 10px white, 0 0 20px white;
+    border: 2px solid rgb(253, 250, 250);
+}
+
+.cnt-container a:hover .contact-img{
+    background-color: rgb(5, 99, 120);
+    border-radius: 50%;
+}
+
+.contact-img{
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width:1000px) {
+    .cnt-container{
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .cnt-container a{
+        width: 80%;
+    }
+}
