@@ -14,7 +14,7 @@ function Project() {
             <h3>Quizzy</h3>
             <hr />
             <p>Quizzy is a Quiz app built in React. The SignUp and Login activity uses Simulated Login using localStorage. This app doesn't have any backend but simulates everything in frontend.</p>
-            <p><a target='_blank' href="https://pramodpatil03.github.io/simplify-react/">Link to the project</a></p>
+            <p><a target='_blank' href="https://quizzy-eight-chi.vercel.app/">Link to the project</a></p>
           </div>
           <hr />
           {/* Simplify react */}
