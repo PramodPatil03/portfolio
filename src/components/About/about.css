@@ -15,11 +15,16 @@
 }
 .info-holder .info-holder-inner{
     margin-left: 20px;
-    h2{
-        font-size: 3em;
-        font-weight: 600;
-    }
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.rounded-20{
+    border-radius: 20px;
+    background-color: rgb(86, 162, 248);
+    text-align: center;
+    padding: 10px 0;
 }
 
 .my-3{
@@ -39,7 +44,7 @@
 }
 .holder .sub-holder h3{
     font-size: 2em;
-    color: rgb(86, 162, 248);
+    color: rgb(245, 246, 248);
 }
 .holder .sub-holder p{
     font-size: 1.5em;

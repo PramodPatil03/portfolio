@@ -16,7 +16,6 @@ function Contact() {
           <a target='_blank' href="https://www.linkedin.com/in/pramod-patil-768706282/"><img className='contact-img' src={linkedin} alt="LinkedIn" />LinkedIn</a>
           <a target='_blank' href="tel:/+918970627081"><img className='contact-img' src={phone} alt="Phone" />Mobile</a>
           <a target='_blank' href="mailto:pramodpatil7058@gmail.com"><img className='contact-img' src={gmail} alt="Gmail" />Gmail</a>
-          <a target='_blank' href="https://www.instagram.com/_pramodpatil__24/"><img className='contact-img' src={insta} alt="Insta" />Instagram</a>
         </div>
       </div>
     </>

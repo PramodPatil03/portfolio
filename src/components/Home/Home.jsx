@@ -2,7 +2,7 @@ import React from 'react'
 import './home.css'
 
 import pramod from '../Images/pramod.png'
-import resume from '../Images/Resume.pdf'
+import resume from '../Images/Java_Full_Stack_Pramod_Patil_AUG_2026.pdf'
 
 function Home() {
   return (
@@ -15,8 +15,8 @@ function Home() {
                 <h2 id='name'>Pramod Patil</h2>
               </div>
               <div className="info">
-                <p id="prof">I am a <span>Frontend Developer</span></p>
-                <p id="desc"> An enthusiastic Computer Science and Engineering student, Having good knowledge of React, Javascript, Java, Python, SQL. </p>
+                <p id="prof">I am a <span>Java Full stack Developer</span></p>
+                <p id="desc"> An enthusiastic Software, Having good knowledge of Java, React and Python MCP servers. With around <strong>2 years of experience in Cognizant</strong>. Developing many Java applications and Python MCP servers with support of AI tools. </p>
               </div>
               <a className='nav-anchor font-black' target='_blank' href={resume}>Resume</a>
           </div>

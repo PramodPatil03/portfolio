@@ -1,0 +1,25 @@
+.card{
+    padding: 10px;
+    background-color: #092469;
+    color: white;
+    border: 1px solid rgb(59, 225, 240);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card:hover{
+    box-shadow: 0 10px 5px #00030a;
+    cursor: pointer;
+}
+
+.firstPara{
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.card h3{
+    font-size: 1.5em;
+    text-align: left;
+}

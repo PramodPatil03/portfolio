@@ -47,9 +47,10 @@
 .nav-anchor:hover {
     color: rgb(24, 191, 251);
     cursor: pointer;
-    text-shadow: 0 0 20px rgb(10, 183, 247);
-    border-top:  2px solid white;
-    border-bottom:  2px solid white;
+    /* text-shadow: 0 0 20px rgb(10, 183, 247); */
+    outline: 2px solid rgb(249, 249, 249);
+    border-radius: 20px;
+    /* border-color: aqua; */
     outline-offset: -2px;
   }
 

@@ -1,0 +1,5 @@
+.ind-projects{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
