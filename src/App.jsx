@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, HashRouter} from 'react-router-dom'
+import { Routes, Route, BrowserRouter} from 'react-router-dom'
 
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
@@ -13,7 +13,7 @@ import Experience from './components/Experience/Experience'
 function App() {
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <div className="main-container">
           <div className="inner-main-container">
             <Navbar />
@@ -27,7 +27,7 @@ function App() {
             <Footer />
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </>
   )
 }
