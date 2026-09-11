@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import './nav.css'
 
-import hamburger from '../Images/hamburger.png'
-import close from '../Images/close.png'
-
 const navItems = [
-    { path: '/', label: 'Portfolio' },
-    { path: '/experience', label: 'Experience' },
-    { path: '/about', label: 'About me' },
-    { path: '/project', label: 'Project' },
-    { path: '/contact', label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'project', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
 ]
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+    const [activeSection, setActiveSection] = useState('home')
 
     const toggleSidebar = () => {
         setIsOpen((prev) => !prev)
@@ -24,49 +21,72 @@ function Navbar() {
         setIsOpen(false)
     }
 
-    // NavLink passes an isActive boolean in its className callback
-    const getLinkClass = ({ isActive }) =>
-        `nav-anchor font-white desktop-view${isActive ? ' selected' : ''}`
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+            closeSidebar()
+        }
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = navItems.map(item => document.getElementById(item.id))
+            const scrollPosition = window.scrollY + 100
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i]
+                if (section && section.offsetTop <= scrollPosition) {
+                    setActiveSection(navItems[i].id)
+                    break
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <>
-            <div className="nav-body">
-                <ul>
-                    {navItems.map((item) => (
-                        <li key={item.path}>
-                            <NavLink to={item.path} className={getLinkClass}>
-                                {item.label}
-                            </NavLink>
-                        </li>
-                    ))}
-
-                    <li className="mobile-view">
-                        <img
-                            className="nav-image"
-                            onClick={toggleSidebar}
-                            src={isOpen ? close : hamburger}
-                            alt={isOpen ? 'Close menu' : 'Open menu'}
-                        />
-                    </li>
-                </ul>
-            </div>
-
-            <div className="nav-body-mobile">
-                {isOpen && (
-                    <ul className="mobile-view">
+            <nav className="navbar">
+                <div className="navbar-container">
+                    <div className="navbar-logo">
+                        <span className="logo-text">PP</span>
+                    </div>
+                    
+                    <ul className="navbar-menu desktop">
                         {navItems.map((item) => (
-                            <li key={item.path}>
-                                <NavLink
-                                    to={item.path}
-                                    onClick={closeSidebar}
-                                    className="nav-anchor font-white"
+                            <li key={item.id}>
+                                <button
+                                    onClick={() => scrollToSection(item.id)}
+                                    className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
                                 >
                                     {item.label}
-                                </NavLink>
+                                </button>
                             </li>
                         ))}
                     </ul>
-                )}
+
+                    <button className="mobile-toggle" onClick={toggleSidebar}>
+                        <span className="hamburger"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+                <ul>
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <button
+                                onClick={() => scrollToSection(item.id)}
+                                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </>
     )

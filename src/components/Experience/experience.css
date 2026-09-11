@@ -1,5 +1,147 @@
-.ind-projects{
-    gap: 15px;
-    display: flex;
-    flex-direction: column;
+.experience-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 60px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -46px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #667eea;
+  border: 3px solid #1a1a2e;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: inline-block;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.timeline-company {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.timeline-description {
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.7;
+}
+
+.project-card {
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-link {
+  display: inline-block;
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #764ba2;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-dot {
+    left: -36px;
+  }
+
+  .timeline-content {
+    padding: 24px;
+  }
+
+  .timeline-title {
+    font-size: 1.25rem;
+  }
+
+  .project-card {
+    padding: 24px;
+  }
 }

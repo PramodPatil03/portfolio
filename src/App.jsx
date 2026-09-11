@@ -1,6 +1,4 @@
-import React from 'react'
-import { Routes, Route, BrowserRouter} from 'react-router-dom'
-
+import React, { useEffect } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -11,24 +9,41 @@ import Contact from './components/Contact/Contact'
 import Experience from './components/Experience/Experience'
 
 function App() {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        }
+      })
+    }, observerOptions)
+
+    const sections = document.querySelectorAll('.section')
+    sections.forEach(section => observer.observe(section))
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section))
+    }
+  }, [])
+
   return (
-    <>
-      <BrowserRouter>
-        <div className="main-container">
-          <div className="inner-main-container">
-            <Navbar />
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/experience" element={<Experience />} />
-                <Route exact path='/about' element = {<About />}/>
-                <Route exact path='/project' element = {<Project />}/>
-                <Route exact path='/contact' element = {<Contact />}/>
-              </Routes>
-            <Footer />
-          </div>
-        </div>
-      </BrowserRouter>
-    </>
+    <div className="app">
+      <Navbar />
+      <main className="main-content">
+        <Home />
+        <About />
+        <Experience />
+        <Project />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   )
 }
 
